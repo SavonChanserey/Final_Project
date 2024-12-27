@@ -1,0 +1,114 @@
+/* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #5f0404, #0b0b0b);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #5f0404, #0b0b0b), url('https://www.transparenttextures.com/patterns/black-tie.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 800px; 
+    height: 500px; 
+    display: flex;
+    background: #eee3e3;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.col {
+    width: 100%; 
+    height: 100%;
+    padding-left:10px;
+    margin: 0%;
+    margin-top: 0%;
+}
+
+.col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+form {
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form .form-container {
+    width: 80%; 
+}
+form h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+form label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input:focus {
+    border-color: #171618 ;
+    outline: none;
+}
+
+form .signupbtn {
+    width: 100%;
+    padding: 10px;
+    background: #bb3305;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+form .signupbtn:hover {
+    background: #2575fc;
+}
+@media (max-width: 768px) {
+    .container {
+    flex-direction: column; 
+    height: auto; 
+    }
+    .col {
+    width: 100%; 
+    height: auto; 
+    }
+    form {
+    padding: 10px;
+    }
+}
+p{
+margin-top: 20px;
+}

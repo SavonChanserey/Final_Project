@@ -1,0 +1,143 @@
+
+.container-fluid {
+    padding: 0; /* Remove default container padding */
+    height: 100vh;
+}
+
+.row {
+    min-height: 100vh; /* Ensure row fills the entire viewport height */
+}
+.left-side {
+    display: flex; /* Use flexbox for vertical centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 0; /* Optional padding for spacing from the edges */
+    background-color: black;
+}
+.left-side img {
+    width: 100%; /* Image spans the full width of the left side */
+    height: auto; /* Maintain aspect ratio */
+}
+.right-side {
+    background-color: #383838; /* Example background color */
+    color: #fff;
+    padding: 30px; /* Add padding for readability */
+}
+.button-group {
+    display: flex; /* Use flexbox for button layout */
+    flex-wrap: wrap; /* Allow wrapping if buttons don't fit in one row */
+    justify-content: center; /* Center the buttons within the container */
+    gap: 10%; /* Add equal spacing between buttons */
+    margin-top: 40px; /* Optional: Add spacing above buttons */
+}
+.text-item {
+    display: inline-block; /* Keep text in a row */
+    margin-right: 20px; /* Space between each item */
+}
+.text-item:after {
+    content: '|'; /* Add the vertical bar after each text item */
+    margin-left: 20px; /* Space after the vertical bar */
+}
+.text-item:last-child:after {
+    content: ''; /* Remove the bar after the last item */
+}
+.btn-custom {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    width: 100%; /* Full width */
+    text-align: left; /* Align text to the left */
+    border-radius: 10px; /* No rounded corners */
+    padding: 15px; /* Padding for a better look */
+    display: flex;
+    justify-content: space-between; /* Space between the text and arrow */
+    align-items: center; /* Vertically center the text and arrow */
+    margin-top: 20px;
+}
+.btn-custom:hover {
+    background-color: #444; /* Darker background on hover */
+}
+.dropdown-menu {
+    background-color: #444; /* Background color for the dropdown */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded dropdown corners */
+    width: 100%; /* Ensure it matches the button width */
+    padding: 10px; /* Add some padding inside the dropdown */
+}
+.dropdown-item-text {
+    color: #fff;
+    font-size: 14px; /* Adjust text size */
+    line-height: 1.5; /* Increase readability */
+}
+.episode{
+    margin-top: 20px;
+}
+.episodes{
+    display: flex; /* Use flexbox for button layout */
+    flex-wrap: wrap; /* Allow wrapping if buttons don't fit in one row */
+    justify-content: center; /* Center the buttons within the container */
+    gap: 5px; /* Add equal spacing between buttons */
+    margin-top: 15px; /* Optional: Add spacing above buttons */
+    
+}
+.episodes button{
+    margin-top: 20px; /*Optional: Add spacing above buttons*/ 
+    width: 15%;
+    height: 40px;
+}
+.episodes .btn-custom{
+    display: flex;
+    justify-content: space-evenly;
+}
+.navbar {
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+    background: linear-gradient(to right, #1e1e1e, #b30000); /* Dark red to lighter red gradient */
+    border-bottom: 3px solid #8b0000;
+    font-family: 'Archivo Black', sans-serif;
+    height: 120px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo-text {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-left: 30px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-left: 5px;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: bold;
+    margin-right: 100px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #d3d3d3; /* Light gray hover effect */
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+    border-radius: 2px;
+}
+
+.collapse {
+    justify-content: flex-end;
+}
