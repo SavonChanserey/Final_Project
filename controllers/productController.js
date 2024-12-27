@@ -1,31 +1,31 @@
-const Product = require("../models/productModel");
+const Movie = require("../models/productModel");
 const upload = require('../config/multer');
 
 exports.getAllProducts = async (req,res) => {
     try{
-        const products = await Product.getAll();
-        title = "List product"
-        res.render('product/index',{products,title});
+        const movies = await Movie.getAll();
+        title = "List movies"
+        res.render('product/index',{movies,title});
         
     }catch(err){
-        res.status(500).send("Error fetching products");
+        res.status(500).send("Error fetching movies");
     }
 };
 
 exports.renderCreateForm = (req,res)=>{
-    title = "New Product"
+    title = "New Movie"
     res.render('product/create',{title});
 };
 
-exports.createProduct = async(req,res)=>{
+exports.createMovie = async(req,res)=>{
     try{
-        const { name, description, price } = req.body;
+        const { title, description} = req.body;
         let image_path = "";
         // If there's an uploaded file, set the image path
         if (req.file) {
             image_path = `/uploads/${req.file.filename}`;
         }
-        await Product.create({ name, description, price, image: image_path });
+        await Movie.create({ title, description, image: image_path });
         res.redirect("/product");
     }catch(err){
         let backurl = '/product';
@@ -34,62 +34,62 @@ exports.createProduct = async(req,res)=>{
     }
 }
 
-exports.getProductById = async (req,res) => {
+exports.getMovieById = async (req,res) => {
     try {
-        const product = await Product.getById(req.params.id);
-        title = "Show product";
-        if (product) {
-          res.render('product/show', { product,title });
+        const movies = await Movie.getById(req.params.id);
+        title = "Show Movies";
+        if (movies) {
+          res.render('product/show', { movies,title });
         } else {
-          res.status(404).send('Product not found');
+          res.status(404).send('movie not found');
         }
       } catch (err) {
-        res.status(500).send('Error fetching product');
+        res.status(500).send('Error fetching movies');
       }
 };
 
 exports.renderEditForm = async (req, res) => {
     try {
-      const product = await Product.getById(req.params.id);
-      title = "Edit Product";
-      if (product) {
-        res.render('product/edit', { product,title });
+      const movies = await Movie.getById(req.params.id);
+      title = "Edit Movie";
+      if (movies) {
+        res.render('product/edit', { movies,title });
       } else {
-        res.status(404).send('Product not found');
+        res.status(404).send('Movie not found');
       }
     } catch (err) {
-      res.status(500).send('Error fetching product');
+      res.status(500).send('Error fetching movies');
     }
 };
 
 // Update product
-exports.updateProduct = async (req, res) => {
+exports.updateMovie = async (req, res) => {
     try {
-        const { name, description, price } = req.body;
+        const { title, description} = req.body;
         let image_path = "";
 
         if (req.file) {
             image_path = `/uploads/${req.file.filename}`;
         }
         else{
-            const product = await Product.getById(req.params.id);
-            image_path = product.image;
+            const movies = await Movie.getById(req.params.id);
+            image_path = movies.image;
             
         }
-        await Product.update(req.params.id, { name, description, price, image: image_path });
+        await Movie.update(req.params.id, { title, description, image: image_path });
         
         res.redirect('/product');
     } catch (err) {
-      res.status(500).send('Error updating product');
+      res.status(500).send('Error updating movies');
     }
   };
   
   // Delete product
-  exports.deleteProduct = async (req, res) => {
+  exports.deleteMovie = async (req, res) => {
     try {
-      await Product.delete(req.params.id);
+      await Movie.delete(req.params.id);
       res.redirect('/product');
     } catch (err) {
-      res.status(500).send('Error deleting product');
+      res.status(500).send('Error deleting movie');
     }
   };
