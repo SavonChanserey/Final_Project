@@ -19,12 +19,12 @@ class Movie {
     static async update(id, data) {
         const result = await db.query('UPDATE movies SET title = ?, description = ?, image = ? WHERE id = ?', [data.title,data.description,data.image, id]);
         return result;
-      }
+    }
     
     static async delete(id) {
         const result = await db.query('DELETE FROM movies WHERE id = ?', [id]);
         return result;
-      }
+    }
 }
 
 

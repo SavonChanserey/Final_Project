@@ -1,4 +1,4 @@
-const Movie = require("../models/productModel");
+const Movie = require("../models/userModel");
 const upload = require('../config/multer');
 
 exports.getAllProducts = async (req,res) => {
@@ -17,7 +17,7 @@ exports.renderCreateForm = (req,res)=>{
     res.render('product/create',{title});
 };
 
-exports.createMovie = async(req,res)=>{
+exports.createMovie = async(req,res)=>{z
     try{
         const { title, description} = req.body;
         let image_path = "";
@@ -39,26 +39,26 @@ exports.getMovieById = async (req,res) => {
         const movies = await Movie.getById(req.params.id);
         title = "Show Movies";
         if (movies) {
-          res.render('product/show', { movies,title });
+            res.render('product/show', { movies,title });
         } else {
-          res.status(404).send('movie not found');
+            res.status(404).send('movie not found');
         }
-      } catch (err) {
+        } catch (err) {
         res.status(500).send('Error fetching movies');
-      }
+        }
 };
 
 exports.renderEditForm = async (req, res) => {
     try {
-      const movies = await Movie.getById(req.params.id);
-      title = "Edit Movie";
-      if (movies) {
+        const movies = await Movie.getById(req.params.id);
+        title = "Edit Movie";
+        if (movies) {
         res.render('product/edit', { movies,title });
-      } else {
+        } else {
         res.status(404).send('Movie not found');
-      }
+        }
     } catch (err) {
-      res.status(500).send('Error fetching movies');
+        res.status(500).send('Error fetching movies');
     }
 };
 
@@ -80,16 +80,16 @@ exports.updateMovie = async (req, res) => {
         
         res.redirect('/product');
     } catch (err) {
-      res.status(500).send('Error updating movies');
+        res.status(500).send('Error updating movies');
     }
-  };
-  
+};
+
   // Delete product
-  exports.deleteMovie = async (req, res) => {
+exports.deleteMovie = async (req, res) => {
     try {
-      await Movie.delete(req.params.id);
-      res.redirect('/product');
+        await Movie.delete(req.params.id);
+        res.redirect('/product');
     } catch (err) {
-      res.status(500).send('Error deleting movie');
+        res.status(500).send('Error deleting movie');
     }
-  };
+};

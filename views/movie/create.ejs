@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<h1 class="mb-4">Add New Movie</h1>
+
+<form action="/movies" method="post" class="card p-4"  enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="title" class="form-label">Movie Ttile</label>
+        <input type="text" class="form-control" name="title" required id="title">
+    </div>
+    <div class="mb-3">
+        <label for="desc" class="form-label">Movie Description</label>
+        <textarea name="description" id="desc"  class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Movie Image</label>
+        <input type="file" class="form-control" name="image" id="image" accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary mb-4">Save</button>
+    <a href="/movies" class="btn btn-secondary">Cancel</a>
+</form>
+
+<%- include('../partials/footer') %>
