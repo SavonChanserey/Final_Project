@@ -41,7 +41,29 @@
 
 <%- include('../partials/footer') %>
 
+<!-- 
+<h3>Episodes</h3>
+<ul>
+    <% episodes.forEach(episode => { %>
+        <li>
+            <strong>Episode <%= episode.episode %>:</strong> 
+            <a href="<%= episode.link %>">Watch here</a>
+        </li>
+    <% }) %>
+</ul> -->
 
-
+<!-- Add new episode form -->
+<!-- <h4>Add New Episode</h4>
+<form action="/movies/<%= movie.id %>/episodes" method="POST">
+    <div class="mb-3">
+        <label for="episode" class="form-label">Episode</label>
+        <input type="text" id="episode" name="episode" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label for="link" class="form-label">Link</label>
+        <input type="text" id="link" name="link" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Episode</button>
+</form> -->
 
 

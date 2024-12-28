@@ -1,5 +1,5 @@
 const Episode = require('../models/episodeModel');
-const upload = require('../config/multer');
+
 exports.getAllEpisodes = async (req, res) => {
     try {
         const episodes = await Episode.getAll();

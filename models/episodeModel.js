@@ -7,7 +7,7 @@ class Episode {
     }
 
     static async create(data){
-        const result = await db.query("INSERT INTO episodes (name,movie_id,link) VALUE (?,?,?)",[data.episode,data.movie_id,data.link]);
+        const result = await db.query("INSERT INTO episodes (episode,movie_id,link) VALUE (?,?,?)",[data.episode,data.movie_id,data.link]);
         return result;
     }
 
@@ -17,7 +17,7 @@ class Episode {
     }
 
     static async update(id, data) {
-        const result = await db.query('UPDATE episodes SET name = ?, movie_id = ?, link = ? WHERE id = ?', [data.episode,data.movie_id,data.link, id]);
+        const result = await db.query('UPDATE episodes SET episode = ?, movie_id = ?, link = ? WHERE id = ?', [data.episode,data.movie_id,data.link, id]);
         return result;
     }
     
