@@ -37,6 +37,7 @@ exports.createMovie = async(req,res)=>{
 exports.getMovieById = async (req,res) => {
     try {
         const movie = await Movie.getById(req.params.id);
+        const episodes = await Episode.getAllByMovieId(req.params.id);
         const title = "Movie Details";
         if (movie) {
           res.render('movie/show', { movie,title });

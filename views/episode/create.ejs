@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<h1 class="mb-4">Add New Episode</h1>
+
+<form action="/episodes" method="post" class="card p-4"  enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="episode" class="form-label">Episode</label>
+        <input type="text" class="form-control" name="episode" required id="episode">
+    </div>
+    <div class="mb-3">
+        <label for="movie_id" class="form-label">Movie ID</label>
+        <input type="text" class="form-control" name="movie_id" required id="movie_id">
+    </div>
+    <div class="mb-3">
+        <label for="link" class="form-label">Link</label>
+        <input type="text" class="form-control" name="link" id="link" >
+    </div>
+    <button type="submit" class="btn btn-primary mb-4">Save</button>
+    <a href="/episodes" class="btn btn-secondary">Cancel</a>
+</form>
+
+<%- include('../partials/footer') %>

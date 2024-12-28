@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 
 const movieRoutes = require('./routes/movieRoutes');
 const indexRoutes = require('./routes/indexRoutes');
+const episodeRoutes = require('./routes/episodeRoutes');
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 // app.use(session({
@@ -17,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 //   }));
 //   // Configure flash middleware
 // app.use(flash());
-  
 
 
 app.use(session({ 
@@ -25,7 +25,7 @@ app.use(session({
     saveUninitialized: true, 
     resave: true
 })); 
-  
+
 // Configure flash middleware
 app.use(flash());
 
@@ -45,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/uploads', express.static('public/uploads'));
 app.use('/movies',movieRoutes);
+app.use('/episodes', episodeRoutes);
 app.use('/',indexRoutes)
 app.listen(PORT,()=>{
     console.log("server is running on port "+PORT);

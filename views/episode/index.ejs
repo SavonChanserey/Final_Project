@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<h1 class="mb-4">Episode List</h1>
+<a href="/episodes/create" class="btn btn-primary mb-3"> Add new episode</a>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>movie_id</th>
+            <th>link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% let i=1 %>
+        <% episodes.forEach(episode => { %>
+            <tr>
+                <td><%= i++ %></td>
+                <td><%= episode.name %></td>
+                <td><%= episode.movie_id %></td>
+                <td><%= episode.link %></td>
+                <td>
+                    <a href="/episode/<%= episode.id %>" class="btn btn-info btn-sm">View</a>
+                    <a href="/episode/<%= episode.id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="/episode/<%= episode.id %>?_method=DELETE" method="POST" class="d-inline" >
+                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteAlert(this, <%= episode.id %>)">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+<script>
+    function deleteAlert(btn,itemId){
+        let formdel = btn.closest('form');
+        Swal.fire({
+                title: `Are you sure to delete item ${itemId}?`,
+                text: "This action cannot be undone!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Find the parent form of the button and submit it
+                    formdel.submit();
+                } else {
+                    // If canceled, log a message or handle cancellation
+                    console.log(`Delete action canceled for item ${itemId}.`);
+                }
+            });
+    }
+
+</script>
+<%- include('../partials/footer') %>
