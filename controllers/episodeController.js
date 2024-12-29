@@ -18,9 +18,11 @@ exports.renderCreateForm = (req, res) => {
 
 exports.createEpisode = async (req, res) => {
     try {
+        console.log("Request Body:", req.body);
         const { episode, movie_id, link } = req.body;
 
         if (!episode || !movie_id || !link) {
+            console.log("Validation failed. Missing fields:", { episode, movie_id, link });
             return res.status(400).send("All fields are required.");
         }
 

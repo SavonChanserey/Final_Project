@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 <h1 class="mb-4">Edit Episode</h1>
-<form action="/episodes/<%= movie.id %>?_method=PUT" method="POST" class="card p-4" enctype="multipart/form-data">
+<form action="/episodes/<%= episode.id %>?_method=PUT" method="POST" class="card p-4" >
     <div class="mb-3">
     <label for="episode" class="form-label">Episode</label>
-    <input type="text" id="episode" name="episode" class="form-control" value="<%= episode.name %>" required />
+    <input type="text" id="episode" name="episode" class="form-control" value="<%= episode.episode %>" required />
     </div>
     <div class="mb-3">
-    <label for="id" class="form-label">Movie_id</label>
-    <input type="text" id="id" name="episode" class="form-control" value="<%= episode.movie_id %>" required />
+    <label for="movie_id" class="form-label">Movie_id</label>
+    <input type="text" id="id" name="movie_id" class="form-control" value="<%= episode.movie_id %>" required />
     </div>
     <div class="mb-3">
     <label for="link" class="form-label">Link</label>
@@ -17,53 +17,6 @@
     <a href="/episodes" class="btn btn-secondary">Cancel</a>
 </form>
 
-
-
-
-<h1>Edit Episode: <%= episode.title %></h1>
-<form action="/episodes/<%= episode.id %>?_method=PUT" method="POST" class="card p-4" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label for="episode" class="form-label">Episode</label>
-        <input type="text" id="name" name="episode" class="form-control" value="<%= episode.name %>" required />
-    </div>
-    <div class="mb-3">
-        <label for="id" class="form-label">Movie_id</label>
-        <input type="text" id="id" name="episode" class="form-control" value="<%= episode.movie_id %>" required />
-    </div>
-    <div class="mb-3">
-        <label for="link" class="form-label">Link</label>
-        <input type="text" class="form-control" name="link" id="link" >
-    </div>
-    <button type="submit" class="btn btn-primary">Update</button>
-    <a href="/episodes" class="btn btn-secondary">Cancel</a>
-</form>
-
-
 <%- include('../partials/footer') %>
-
-<!-- 
-<h3>Episodes</h3>
-<ul>
-    <% episodes.forEach(episode => { %>
-        <li>
-            <strong>Episode <%= episode.episode %>:</strong> 
-            <a href="<%= episode.link %>">Watch here</a>
-        </li>
-    <% }) %>
-</ul> -->
-
-<!-- Add new episode form -->
-<!-- <h4>Add New Episode</h4>
-<form action="/movies/<%= movie.id %>/episodes" method="POST">
-    <div class="mb-3">
-        <label for="episode" class="form-label">Episode</label>
-        <input type="text" id="episode" name="episode" class="form-control" required />
-    </div>
-    <div class="mb-3">
-        <label for="link" class="form-label">Link</label>
-        <input type="text" id="link" name="link" class="form-control" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Add Episode</button>
-</form> -->
 
 

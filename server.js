@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 //   }));
 //   // Configure flash middleware
 // app.use(flash());
-
+app.use(express.json());
 
 app.use(session({ 
     secret:'cyber cadt idri idt idg', 
@@ -50,3 +50,5 @@ app.use('/',indexRoutes)
 app.listen(PORT,()=>{
     console.log("server is running on port "+PORT);
 });
+
+app.use('/episodes', episodeRoutes);

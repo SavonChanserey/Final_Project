@@ -12,10 +12,24 @@ class Movie {
     }
 
     static async getById(id) {
-        const [rows] = await db.query('SELECT * FROM movies WHERE id = ?', [id]);
-        return rows[0];
+        try {
+            console.log('Fetching movie with ID:', id);  // Log the ID we are querying
+            const [rows] = await db.query('SELECT * FROM movies WHERE id = ?', [id]);
+            
+            // Log the result of the query
+            console.log('Query Result:', rows);
+    
+            if (rows.length === 0) {
+                console.log('Movie not found');
+                return null;  // No movie found, return null
+            }
+            return rows[0];  // Movie found, return the first row
+        } catch (err) {
+            console.error('Error fetching movie by ID:', err);  // Log any error from the database query
+            throw err;  // Rethrow the error to be handled in the controller
+        }
     }
-
+    
     static async update(id, data) {
         const result = await db.query('UPDATE movies SET title = ?, description = ?, image = ? WHERE id = ?', [data.title,data.description,data.image, id]);
         return result;

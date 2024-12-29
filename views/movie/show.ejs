@@ -1,15 +1,12 @@
+
 <%- include('../partials/header') %>
 <h1 class="mb-4">Movie Details</h1>
 <div class="card p-4">
   <p><strong>ID:</strong> <%= movie.id %></p>
-  <p><strong><Title></Title>:</strong> <%= movie.title %></p>
-  <p><strong>Description:</strong> $<%= movie.description %></p>
+  <p><strong>Title:</strong> <%= movie.title %></p>
+  <p><strong>Description:</strong> <%= movie.description %></p>
+  <img src="<%= movie.image %>" alt="Movie Image">
 </div>
 <a href="/movies" class="btn btn-secondary mt-3">Back to List</a>
-
-
-<h1><%= movie.title %></h1>
-<p><%= movie.description %></p>
-<img src="<%= movie.image %>" alt="Movie Image">
 
 <%- include('../partials/footer') %>

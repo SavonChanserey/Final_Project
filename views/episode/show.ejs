@@ -2,25 +2,12 @@
 <h1 class="mb-4">Episode Details</h1>
 <div class="card p-4">
     <p><strong>ID:</strong> <%= episode.id %></p>
-    <p><strong>Episode:</strong> <%= episode.name %></p>
+    <p><strong>Episode:</strong> <%= episode.episode %></p>
     <p><strong>Movie_id:</strong> $<%= episode.movie_id %></p>
     <p><strong>Link:</strong> <a href="<%= episode.link %>">Watch</a></p>
 </div>
 <a href="/episodes" class="btn btn-secondary mt-3">Back to List</a>
 
 
-<h1><%= episode.name %></h1>
-<p><%= episode.movie_id %></p>
-<a href="<%= episode.link %>">Watch</a>
-
 <%- include('../partials/header') %>
 
-<!-- <h2 class="mt-4">Episodes</h2>
-<div class="list-group">
-  <% episodes.forEach(episode => { %>
-    <div class="list-group-item">
-      <p><strong>Episode:</strong> <%= episode.episode %></p>
-      <p><strong>Link:</strong> <a href="<%= episode.link %>">Watch</a></p>
-    </div>
-  <% }) %>
-</div> -->

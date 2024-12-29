@@ -4,7 +4,7 @@ const upload = require('../config/multer');
 exports.getAllMovies = async (req,res) => {
     try{
         const movies = await Movie.getAll();
-        title = "List movies"
+        const title = "List movies";
         res.render('movie/index',{movies,title});
         
     }catch(err){
@@ -13,7 +13,7 @@ exports.getAllMovies = async (req,res) => {
 };
 
 exports.renderCreateForm = (req,res)=>{
-    title = "Add New Movie"
+    const title = "Add New Movie";
     res.render('movie/create',{title});
 };
 
@@ -34,20 +34,24 @@ exports.createMovie = async(req,res)=>{
     }
 }
 
-exports.getMovieById = async (req,res) => {
-    try {
-        const movie = await Movie.getById(req.params.id);
-        const episodes = await Episode.getAllByMovieId(req.params.id);
-        const title = "Movie Details";
-        if (movie) {
-          res.render('movie/show', { movie,title });
-        } else {
-          res.status(404).send('movie not found');
-        }
-      } catch (err) {
-        res.status(500).send('Error fetching movies');
+exports.getMovieById = async (req, res) => {
+  try {
+      console.log('Request Params ID:', req.params.id);  // Log the ID parameter
+      const movie = await Movie.getById(req.params.id);
+      const title = "Movie Details";
+
+      if (movie) {
+          res.render('movie/show', { movie, title });
+      } else {
+          console.log('Movie not found, sending 404');
+          res.status(404).send('Movie not found');
       }
+  } catch (err) {
+      console.error('Error in getMovieById controller:', err);  // Log error
+      res.status(500).send('Error fetching movies');
+  }
 };
+
 
 exports.renderEditForm = async (req, res) => {
     try {
