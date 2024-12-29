@@ -10,6 +10,9 @@ const movieRoutes = require('./routes/movieRoutes');
 const indexRoutes = require('./routes/indexRoutes');
 const episodeRoutes = require('./routes/episodeRoutes');
 // Middleware
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
 app.use(express.urlencoded({ extended: true }));
 // app.use(session({
 //     secret: 'cyber cadt idri idt idg',
