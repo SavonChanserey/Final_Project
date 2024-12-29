@@ -5,6 +5,7 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
 
+const loginRoutes = require('./routes/loginRoutes');
 const movieRoutes = require('./routes/movieRoutes');
 const indexRoutes = require('./routes/indexRoutes');
 const episodeRoutes = require('./routes/episodeRoutes');
@@ -46,9 +47,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static('public/uploads'));
 app.use('/movies',movieRoutes);
 app.use('/episodes', episodeRoutes);
-app.use('/',indexRoutes)
+app.use('/',indexRoutes);
+app.use('/logins', loginRoutes);
 app.listen(PORT,()=>{
     console.log("server is running on port "+PORT);
 });
 
-app.use('/episodes', episodeRoutes);
+

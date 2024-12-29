@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<h1 class="mb-4">Add New user</h1>
+
+<form action="/logins" method="post" class="card p-4" >
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" required id="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" required id="password">
+    </div>
+    <button type="submit" class="btn btn-primary mb-4">Save</button>
+    <a href="/logins" class="btn btn-secondary">Cancel</a>
+</form>
+
+<%- include('../partials/footer') %>
