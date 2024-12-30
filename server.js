@@ -7,8 +7,9 @@ const flash = require('connect-flash');
 
 const loginRoutes = require('./routes/loginRoutes');
 const movieRoutes = require('./routes/movieRoutes');
-const indexRoutes = require('./routes/indexRoutes');
 const episodeRoutes = require('./routes/episodeRoutes');
+const userRoutes = require('./routes/userRoutes');
+
 // Middleware
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
@@ -41,6 +42,7 @@ app.use((req, res, next) => {
 
 
 app.set('view engine','ejs');
+app.set('views', path.join(__dirname, 'views/index')); 
 
 const PORT = process.env.PORT || 3000;
 
@@ -50,10 +52,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static('public/uploads'));
 app.use('/movies',movieRoutes);
 app.use('/episodes', episodeRoutes);
-app.use('/',indexRoutes);
 app.use('/logins', loginRoutes);
+app.use('/', userRoutes);
 app.listen(PORT,()=>{
     console.log("server is running on port "+PORT);
 });
-
-

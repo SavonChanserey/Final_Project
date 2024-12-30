@@ -1,95 +1,30 @@
-const Movie = require("../models/userModel");
-const upload = require('../config/multer');
+const { addUser, getUsers } = require('../models/userModel');
 
-exports.getAllProducts = async (req,res) => {
-    try{
-        const movies = await Movie.getAll();
-        title = "List movies"
-        res.render('product/index',{movies,title});
-        
-    }catch(err){
-        res.status(500).send("Error fetching movies");
-    }
+// Controller for rendering home page
+const getHomePage = (req, res) => {
+    res.render('index', { title: 'Cinema - Home',  });
 };
 
-exports.renderCreateForm = (req,res)=>{
-    title = "New Movie"
-    res.render('product/create',{title});
+// Controller for rendering movies page
+const getMoviesPage = (req, res) => {
+    const movies = [
+        {
+            title: "Movie 1",
+            description: "Description of movie 1",
+            image: "/Users/savonchanserey/Desktop/Final_Project/public/image/image copy 2.png",
+        },
+        // Add more movies as needed
+    ];
+    res.render('movie', { title: 'Cinema - Movies', movies: movies });
 };
 
-exports.createMovie = async(req,res)=>{z
-    try{
-        const { title, description} = req.body;
-        let image_path = "";
-        // If there's an uploaded file, set the image path
-        if (req.file) {
-            image_path = `/uploads/${req.file.filename}`;
-        }
-        await Movie.create({ title, description, image: image_path });
-        res.redirect("/product");
-    }catch(err){
-        let backurl = '/product';
-        req.flash('error', err.sqlMessage);
-        return res.redirect(backurl);
-    }
-}
-
-exports.getMovieById = async (req,res) => {
-    try {
-        const movies = await Movie.getById(req.params.id);
-        title = "Show Movies";
-        if (movies) {
-            res.render('product/show', { movies,title });
-        } else {
-            res.status(404).send('movie not found');
-        }
-        } catch (err) {
-        res.status(500).send('Error fetching movies');
-        }
+// Controller for rendering login page
+const getLoginPage = (req, res) => {
+    res.render('login', { title: 'Cinema - Login' });
 };
 
-exports.renderEditForm = async (req, res) => {
-    try {
-        const movies = await Movie.getById(req.params.id);
-        title = "Edit Movie";
-        if (movies) {
-        res.render('product/edit', { movies,title });
-        } else {
-        res.status(404).send('Movie not found');
-        }
-    } catch (err) {
-        res.status(500).send('Error fetching movies');
-    }
+// Controller for rendering register page
+const getRegisterPage = (req, res) => {
+    res.render('register', { title: 'Cinema - Register' });
 };
-
-// Update product
-exports.updateMovie = async (req, res) => {
-    try {
-        const { title, description} = req.body;
-        let image_path = "";
-
-        if (req.file) {
-            image_path = `/uploads/${req.file.filename}`;
-        }
-        else{
-            const movies = await Movie.getById(req.params.id);
-            image_path = movies.image;
-            
-        }
-        await Movie.update(req.params.id, { title, description, image: image_path });
-        
-        res.redirect('/product');
-    } catch (err) {
-        res.status(500).send('Error updating movies');
-    }
-};
-
-  // Delete product
-exports.deleteMovie = async (req, res) => {
-    try {
-        await Movie.delete(req.params.id);
-        res.redirect('/product');
-    } catch (err) {
-        res.status(500).send('Error deleting movie');
-    }
-};
+module.exports = { getHomePage, getMoviesPage, getLoginPage, getRegisterPage };
