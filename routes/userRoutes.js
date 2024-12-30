@@ -5,9 +5,9 @@ const router = express.Router();
 
 // Define routes
 router.get('/', getHomePage);
-router.get('/movie', getMoviesPage);
-router.get('/login', getLoginPage);
-router.get('/register', getRegisterPage);
+router.get('/usermovie', getMoviesPage);
+router.get('/userlogin', getLoginPage);
+router.get('/userregister', getRegisterPage);
 
 
 module.exports = router;

@@ -42,18 +42,25 @@ app.use((req, res, next) => {
 
 
 app.set('view engine','ejs');
-app.set('views', path.join(__dirname, 'views/index')); 
+// Serve other views like movies, episodes, etc.
+// app.set('views', path.join(__dirname, 'views'));
 
-const PORT = process.env.PORT || 3000;
+app.set('views', path.join(__dirname, 'views', 'index')); // For pages like userlogin, userregister, etc.
 
-app.use(express.static(path.join(__dirname, 'public')));
+
+
 // app.use('/css', express.static('public/css'));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static('public/uploads'));
+
+
+
 app.use('/movies',movieRoutes);
 app.use('/episodes', episodeRoutes);
 app.use('/logins', loginRoutes);
 app.use('/', userRoutes);
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>{
     console.log("server is running on port "+PORT);
 });

@@ -10,11 +10,11 @@ router.use(methodOverride('_method'));
 router.get('/create',movieController.renderCreateForm);
 
 router.post('/', upload.single('image'),movieController.createMovie);
-router.get('/',movieController.getAllMovies);
 router.get('/:id', movieController.getMovieById); // Show product details
 router.get('/:id/edit', movieController.renderEditForm); // Show edit form
 router.put('/:id', upload.single('image'),movieController.updateMovie); // Update product
 router.delete('/:id', movieController.deleteMovie); // Delete product
 
+router.get('/',movieController.getAllMovies);
 
 module.exports = router;
