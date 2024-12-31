@@ -12,6 +12,7 @@ const userRoutes = require('./routes/userRoutes');
 
 // Middleware
 const methodOverride = require('method-override');
+const { getDetailPageByMovieId } = require('./controllers/userController');
 app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: true }));
@@ -58,6 +59,7 @@ app.use('/movies',movieRoutes);
 app.use('/episodes', episodeRoutes);
 app.use('/logins', loginRoutes);
 app.use('/', userRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>{

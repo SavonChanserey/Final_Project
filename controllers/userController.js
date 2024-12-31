@@ -58,22 +58,29 @@ const postRegisterPage = async (req, res) => {
     }
 };
 
-const getDetailPage = async (req, res) => {
+
+const getDetailPageByMovieId = async (req, res) => {
+    const movieId = req.params.movie_id;
+
     try {
-        // Fetch movies from the database
-        const [movies] = await db.query('SELECT id, title, description, image FROM movies');
-        console.log('Movies:', movies);
+        // Fetch the specific movie from the database
+        const [movies] = await db.query('SELECT id, title, description, image FROM movies WHERE id = ?', [movieId]);
 
-        // Fetch episodes from the database
-        const [episodes] = await db.query('SELECT episode, movie_id, link FROM episodes');
-        console.log('Episodes:', episodes);
+        if (movies.length === 0) {
+            return res.status(404).send('Movie not found');
+        }
 
-        // Pass both movies and episodes to the EJS template
+        // Fetch episodes related to this movie
+        const [episodes] = await db.query('SELECT episode, movie_id, link FROM episodes WHERE movie_id = ?', [movieId]);
+
+        // Pass data to the EJS template
         res.render('userdetail', { movies, episodes });
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Database query failed');
+    } catch (error) {
+        console.error('Error fetching movie details:', error);
+        res.status(500).send('Internal Server Error');
     }
 };
 
-module.exports = { getHomePage, getMoviesPage, getLoginPage, getDetailPage, postRegisterPage, getRegisterPage };
+
+
+module.exports = { getHomePage, getMoviesPage, getLoginPage, postRegisterPage, getRegisterPage ,getDetailPageByMovieId,};
