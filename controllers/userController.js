@@ -10,7 +10,7 @@ const getHomePage = (req, res) => {
 const getMoviesPage = async (req, res) => {
     try {
         // Fetch movies from the database
-        const [movies] = await db.query('SELECT title, description, image FROM movies');
+        const [movies] = await db.query('SELECT id, title, description, image FROM movies');
         console.log('Movies:', movies); 
         res.render('usermovie', { movies }); // Pass movies to EJS template
     } catch (err) {
