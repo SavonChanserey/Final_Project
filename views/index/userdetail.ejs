@@ -66,7 +66,6 @@
           <div class="col-md-7 col-12 left-side">
             <% movies.forEach(function(movie) { %>
               <% let relatedEpisodes = episodes.filter(episode => episode.movie_id === movie.id);  %>
-                <% if (relatedEpisodes.length > 0) { %> 
                   <img src="<%=movie.image%>" alt="first movie">
             </div>
             <div class="col-md-5 col-12 right-side">
@@ -76,8 +75,7 @@
                   <span class="text-item">Completed</span>
                   <span class="text-item">TVSeries</span>
                 </div>
-              <% } %>
-            <% }); %>
+                <% }); %>
               <div class="button-group">
                 <button type="button" class="btn btn-grey text-light btn-icon">
                   <i class="fa-regular fa-heart"></i>
@@ -114,14 +112,13 @@
               </div>
               <div class="episodes">
                 <% episodes.forEach(function(episode) { %>
-                  <% if (movies.some(movie => movie.id === episode.movie_id)) { %>
+                  <% let relatedMovies = movies.filter(movie => movie.id === episode.movie_id);  %>
                     <button class="btn btn-secondary btn-custom text-light btn-icon">
                       <a href="<%= episode.link %>" class="text-light text-decoration-none">
                         <span><%= episode.episode %> </span>
                       </a>
                       <i class="fa-solid fa-closed-captioning"></i>
                     </button>
-                  <% } %>
                 <% }); %>
               </div>
           </div>

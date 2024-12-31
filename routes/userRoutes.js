@@ -1,5 +1,5 @@
 const express = require('express');
-const { getHomePage, getMoviesPage, getLoginPage, getRegisterPage, getDetailPage} = require('../controllers/userController');
+const { getHomePage, getMoviesPage, getLoginPage, getRegisterPage, getDetailPage, postRegisterPage} = require('../controllers/userController');
 
 const router = express.Router();
 

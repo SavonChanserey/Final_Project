@@ -1,6 +1,6 @@
 const { addUser} = require('../models/userModel');
 const db = require('../config/database');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 // Controller for rendering home page
 const getHomePage = (req, res) => {
     res.render('index', { title: 'Cinema - Home',  });
@@ -24,6 +24,9 @@ const getLoginPage = (req, res) => {
     res.render('userlogin', { title: 'Cinema - Login' });
 };
 
+const getRegisterPage = (req, res) => {
+    res.render('userregister', { title: 'Cinema - Register' });
+};
 // Controller for rendering register page
 const postRegisterPage = async (req, res) => {
     const { email, password, confirm_password } = req.body;
@@ -73,4 +76,4 @@ const getDetailPage = async (req, res) => {
     }
 };
 
-module.exports = { getHomePage, getMoviesPage, getLoginPage, getRegisterPage, getDetailPage };
+module.exports = { getHomePage, getMoviesPage, getLoginPage, getDetailPage, postRegisterPage, getRegisterPage };
