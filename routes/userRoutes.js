@@ -1,5 +1,5 @@
 const express = require('express');
-const { getHomePage, getMoviesPage, getLoginPage, getRegisterPage} = require('../controllers/userController');
+const { getHomePage, getMoviesPage, getLoginPage, getRegisterPage, getDetailPage} = require('../controllers/userController');
 
 const router = express.Router();
 
@@ -8,6 +8,8 @@ router.get('/', getHomePage);
 router.get('/usermovie', getMoviesPage);
 router.get('/userlogin', getLoginPage);
 router.get('/userregister', getRegisterPage);
+router.post('/userregister', postRegisterPage);
+router.get('/userdetail', getDetailPage);
 
 
 module.exports = router;

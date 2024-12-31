@@ -141,3 +141,22 @@
 .collapse {
     justify-content: flex-end;
 }
+.episode-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Optional: space between episodes */
+}
+
+.episode-details {
+    flex: 1; /* Take up remaining space for text */
+}
+
+.episode-video {
+    flex-shrink: 0; /* Prevent the video from shrinking */
+}
+
+.episode-video video {
+    max-width: 100%; /* Ensure video is responsive */
+    height: auto; /* Maintain aspect ratio */
+}

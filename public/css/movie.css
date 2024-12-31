@@ -63,7 +63,9 @@ body {
     overflow: hidden;
     width: 100%;
     max-width: 300px;
+    margin-top: 40px;
 }
+
 
 .card-img-top {
     width: 100%;
