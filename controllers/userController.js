@@ -61,7 +61,7 @@ const postRegisterPage = async (req, res) => {
 const getDetailPage = async (req, res) => {
     try {
         // Fetch movies from the database
-        const [movies] = await db.query('SELECT title, description, image FROM movies');
+        const [movies] = await db.query('SELECT id, title, description, image FROM movies');
         console.log('Movies:', movies);
 
         // Fetch episodes from the database

@@ -18,7 +18,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-          <a class="navbar-brand d-flex align-items-center" href="./index.html" target="_blank">
+          <a class="navbar-brand d-flex align-items-center" href="/" target="_blank">
               <img src="../image/image copy 5.png" alt="logo" class="logo me-2">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -34,16 +34,16 @@
                       <button type="submit" class="btn btn-outline-light">Search</button>
                   </form>
                   <li class="nav-item">
-                      <a class="nav-link active" href="../index.html"><i class="fa-regular fa-house"></i> Home</a>
+                      <a class="nav-link active" href="/"><i class="fa-regular fa-house"></i> Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" href="../movie.html"><i class="fa-solid fa-film"></i> Movie</a>
+                      <a class="nav-link active" href="/usermovie"><i class="fa-solid fa-film"></i> Movie</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link active" href="#"><i class="fa-regular fa-cart-shopping"></i> Download</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" href="../login.html"><i class="fa-solid fa-address-card"></i> Login</a>
+                      <a class="nav-link active" href="/userlogin"><i class="fa-solid fa-address-card"></i> Login</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link active" aria-current="page" href="#" id="languageDropdown">
@@ -62,68 +62,69 @@
       </div>
   </nav>
 
-      <div class="row">
-          <div class="col-md-7 col-12 left-side">
-            <% movies.forEach(function(movie) { %>
-              <% let relatedEpisodes = episodes.filter(episode => episode.movie_id === movie.id);  %>
-                  <img src="<%=movie.image%>" alt="first movie">
+  <div class="container">
+    <div class="row">
+        <% movies.forEach(function(movie) { %>
+            <% 
+                // Filter episodes related to the current movie
+                let relatedEpisodes = episodes.filter(episode => Number(episode.movie_id) === movie.id);  
+            %>
+            <% if (relatedEpisodes.length > 0) { %> <!-- Check if there are related episodes -->
+            <div class="col-md-7 col-12 left-side">
+                <img src="<%= movie.image %>" alt="<%= movie.title %>" class="img-fluid">
             </div>
             <div class="col-md-5 col-12 right-side">
-                <h3><%= movie.title%></h3>
+                <h3><%= movie.title %></h3>
                 <div class="col-12">
-                  <span class="text-item">China</span>
-                  <span class="text-item">Completed</span>
-                  <span class="text-item">TVSeries</span>
+                    <span class="text-item">China</span>
+                    <span class="text-item">Completed</span>
+                    <span class="text-item">TVSeries</span>
                 </div>
-                <% }); %>
-              <div class="button-group">
-                <button type="button" class="btn btn-grey text-light btn-icon">
-                  <i class="fa-regular fa-heart"></i>
-                  <span>Favorite</span>
-                </button>
-                <button type="button" class="btn btn-grey text-light btn-icon">
-                  <i class="fa-solid fa-share-nodes"></i>
-                  Share
-                </button>
-                <button type="button" class="btn btn-grey text-light btn-icon">
-                  <i class="fa-solid fa-cloud-arrow-down"></i>
-                  <span>Download</span>
-                </button>
-                <button class="btn btn-grey text-light btn-icon">
-                  <i class="fas fa-exclamation-circle"></i>
-                  <span>Report</span>
-                </button>
-              </div>
-
-              <div class="dropdown">
-                <button class="btn btn-secondary btn-custom dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                  Description
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <% movies.forEach(function(movie) { %>
-                    <% if (episodes.some(episode => episode.movie_id === movie.id)) { %>
-                      <li><span class="dropdown-item-text"><%= movie.description %></span></li>
-                    <% } %>
-                    <% }); %>
-                </ul>
-              </div>
-              <div class="episode">
-                <h3>Episodes</h3>
-              </div>
-              <div class="episodes">
-                <% episodes.forEach(function(episode) { %>
-                  <% let relatedMovies = movies.filter(movie => movie.id === episode.movie_id);  %>
-                    <button class="btn btn-secondary btn-custom text-light btn-icon">
-                      <a href="<%= episode.link %>" class="text-light text-decoration-none">
-                        <span><%= episode.episode %> </span>
-                      </a>
-                      <i class="fa-solid fa-closed-captioning"></i>
+                <div class="button-group">
+                    <button type="button" class="btn btn-grey text-light btn-icon">
+                        <i class="fa-regular fa-heart"></i>
+                        <span>Favorite</span>
                     </button>
-                <% }); %>
-              </div>
-          </div>
-      </div>
+                    <button type="button" class="btn btn-grey text-light btn-icon">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+                    <button type="button" class="btn btn-grey text-light btn-icon">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                        <span>Download</span>
+                    </button>
+                    <button class="btn btn-grey text-light btn-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Report</span>
+                    </button>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-custom dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Description
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><span class="dropdown-item-text"><%= movie.description %></span></li>
+                    </ul>
+                </div>
+                <div class="episode">
+                    <h3>Episodes</h3>
+                </div>
+                <div class="episodes">
+                    <% relatedEpisodes.forEach(function(episode) { %>
+                        <button class="btn btn-secondary btn-custom text-light btn-icon">
+                            <a href="<%= episode.link %>" class="text-light text-decoration-none">
+                                <span><%= episode.episode %> </span>
+                            </a>
+                            <i class="fa-solid fa-closed-captioning"></i>
+                        </button>
+                    <% }); %>
+                </div>
+            </div>
+            <% } %>
+        <% }); %>
     </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
