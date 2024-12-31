@@ -44,9 +44,10 @@ app.use((req, res, next) => {
 
 app.set('view engine','ejs');
 // Serve other views like movies, episodes, etc.
-//app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 
-app.set('views', path.join(__dirname, 'views', 'index')); // For pages like userlogin, userregister, etc.
+// For pages like userlogin, userregister, etc.
+// app.set('views', path.join(__dirname, 'views', 'index')); 
 
 
 // app.use('/css', express.static('public/css'));
