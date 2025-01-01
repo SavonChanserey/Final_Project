@@ -12,7 +12,7 @@ const getMoviesPage = async (req, res) => {
         // Fetch movies from the database
         const [movies] = await db.query('SELECT id, title, description, image FROM movies');
         console.log('Movies:', movies); 
-        res.render('index/usermovie', { movies }); // Pass movies to EJS template
+        res.render('index/usermovie', { movies, user: req.session.user }); // Pass movies to EJS template
     } catch (err) {
         console.error(err);
         res.status(500).send('Database query failed');
@@ -38,7 +38,9 @@ const postLoginPage = async (req, res) => {
 
         req.session.user = user[0];
         console.log('User logged in successfully');
-        res.redirect('/'); // Redirect to home or dashboard after login
+        const redirectUrl = req.session.redirectTo || '/';
+        delete req.session.redirectTo;
+        res.redirect(redirectUrl);
     } catch (err) {
         console.error('Error during login:', err);
         res.status(500).send('Failed to login');
@@ -95,7 +97,7 @@ const getDetailPageByMovieId = async (req, res) => {
         const [episodes] = await db.query('SELECT episode, movie_id, link FROM episodes WHERE movie_id = ?', [movieId]);
 
         // Pass data to the EJS template
-        res.render('index/userdetail', { movies, episodes });
+        res.render('index/userdetail', { movies, episodes, user: req.session.user });
     } catch (error) {
         console.error('Error fetching movie details:', error);
         res.status(500).send('Internal Server Error');

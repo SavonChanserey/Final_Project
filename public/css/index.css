@@ -1,65 +1,68 @@
-#navbarSupportedContent a{
-    display: flex;
-    justify-content: end;
-}
-.navbar-nav {
-    display: flex;
-    margin-left: 60px; 
-    margin-top: 40px;
+
+.carousel-inner img {
+    width: auto;
+    height: 500px;
+    object-fit: cover;
 }
 
-.navbar-nav .nav-item {
-    margin-right: 85px; 
-}
-.carousel-inner img { 
-    width: auto;
-    height: 500px; 
-    object-fit: cover; 
-}
-.carousel-inner{
-    margin-left: auto; 
+.carousel-inner {
+    margin-left: auto;
     margin-right: auto;
     max-width: 1000px;
     margin-top: 80px;
     transition: transform 0.5s ease, opacity 0.5s ease-out;
 }
+
 .carousel-item {
-    position: relative; 
+    position: relative;
     border-radius: 25px;
     overflow: hidden;
 }
+
 .carousel-item h2 {
     position: absolute;
-    top: 1%; 
-    left: 1%; 
+    top: 1%;
+    left: 1%;
     border-radius: 20px;
-    color: white; 
-    font-size: 1rem; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-    background-color: #333333; 
-    padding:10px;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    background-color: #333333;
+    padding: 10px;
 }
+
 .archivo-black-regular {
     font-family: "Archivo Black", serif;
     font-style: normal;
 }
-#continue-watching{
+
+#continue-watching {
     color: white;
     margin-top: 50px;
     margin-left: 50px;
     text-decoration: none;
     font-size: 2rem;
-    margin-top: 20px;
 }
-body{
+
+body {
     background: linear-gradient(to left, rgb(35, 28, 28), rgb(149, 31, 31));
-    /* display: flex; */
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    /* height: 100vh; */
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    margin: 0; 
+    margin: 0;
+}
+
+#navbarSupportedContent a {
+    display: flex;
+    justify-content: end;
+}
+
+.navbar-nav {
+    display: flex;
+    margin-left: 60px;
+    margin-top: 40px;
+    gap: 20px;
 }
 .nav-link,
 .form-select {
@@ -67,91 +70,183 @@ body{
 }
 
 .nav-link:hover {
-    color: #d3d3d3; 
-    background-color: #333333; 
-    text-decoration: none; 
+    color: #d3d3d3;
+    background-color: #333333;
+    text-decoration: none;
     border-radius: 20px;
 }
+
 .logo {
-    width:130px; 
-    height: auto; 
-    margin-right: 500px; 
-    display: block; 
-    margin-top: -60px;
+    width: 130px;
+    height: auto;
+    margin-right: 0px;
+    display: block;
+    margin-top: 0px;
 }
+
 #menu .form-select {
     width: 10%;
-    background-color: #333333; 
-    color: white; 
-    border: none; 
-    border-radius: 10px; 
-    padding: 5px; 
-    font-family: 'Archivo Black', sans-serif; 
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Archivo Black', sans-serif;
 }
-#detail{
+
+#detail {
     width: 900px;
     align-items: center;
     display: flex;
     margin: 0 auto;
 }
+
 .navbar {
-    background-color: #cb2909 !important;  
-    background: linear-gradient(to right, #1e1e1e, #b30000) !important; 
-    padding: 10px 20px; 
-    border-bottom: 2px solid #b30000;  
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+    background: linear-gradient(to right, #1e1e1e, #b30000);
+    border-bottom: 3px solid #8b0000;
+    font-family: 'Archivo Black', sans-serif;
+    height: 110px;
+    padding: 5px 0;
 }
+
 .navbar .nav-link {
     color: white !important;
     font-family: 'Archivo Black', sans-serif;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 }
+
 .navbar .nav-link:hover {
-    color: #d3d3d3;  
-    background-color: #333333;  
+    color: #d3d3d3;
+    background-color: #333333;
     text-decoration: none;
     border-radius: 20px;
 }
 
-.navbar-logo-text {
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 2rem; 
-    color: #ffffff; 
-    margin-right: 30px;
-    margin-top: -50px;
-
-}
 .nav-item {
-    margin-left: 105px;  
-    margin-right: 15px;
+    margin-left: 30px;
 }
-.nav-link i {
-    margin-right: 8px; 
-    font-size: 1.2rem; 
 
+.nav-link i {
+    margin-right: 8px;
+    font-size: 1.2rem;
 }
+
 .navbar-nav .nav-item {
-    margin-right: 15px; 
+    margin-left: 10px;
+    margin-right: 40px;
 }
+
 .navbar {
-    background-color: #1e1615 !important; 
-    background: linear-gradient(to right, #1e1e1e, #b30000) !important; 
+    background-color: #1e1615 !important;
+    background: linear-gradient(to right, #1e1e1e, #b30000) !important;
 }
 
 .navbar .nav-link {
-    color: white !important; 
-    font-family: 'Archivo Black', sans-serif; 
-    transition: color 0.3s ease; 
+    color: white !important;
+    font-family: 'Archivo Black', sans-serif;
+    transition: color 0.3s ease;
+    font-size: 16px;
 }
+
 .gloria-hallelujah-regular {
     font-family: 'Gloria Hallelujah', cursive;
     font-weight: 400;
     font-style: normal;
 }
+
 .navbar-logo-text {
-    font-family: 'Gloria Hallelujah', cursive; 
-    font-size: 2rem; 
-    color: white; 
-    margin-left: 10px; 
-    vertical-align: middle; 
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2rem;
+    color: white;
+    margin-left: 10px;
+    vertical-align: middle;
     text-align: left;
+}
+
+.dropdown-menu {
+    display: none;  
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+@keyframes changeBackground {
+    0%, 20% {
+        opacity: 1;
+    }
+    25%, 95% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.bg-1 {
+    animation: changeBackground 24s infinite;
+}
+
+.bg-2 {
+    animation: changeBackground 24s infinite;
+    animation-delay: 6s;
+}
+
+.bg-3 {
+    animation: changeBackground 24s infinite;
+    animation-delay: 12s;
+}
+
+.bg-4 {
+    animation: changeBackground 24s infinite;
+    animation-delay: 18s;
+}
+
+.navbar, .carousel, #continue-watching {
+    position: relative;
+    z-index: 1;
+}
+
+#login{
+    transform: translateX(-70px);
+}
+#languageDropdown{
+    transform: translateX(-70px);
+}
+#navbarDropdown{
+    transform: translateX(-70px);
+}
+#searchInput{
+    border-radius: 20px;
 }

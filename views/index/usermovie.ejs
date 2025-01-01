@@ -9,40 +9,17 @@
     <link rel="stylesheet" href="../css/movie.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <a class="navbar-brand d-flex align-items-center" href="#">
-                        <span class="navbar-logo-text">PANDA</span>
-                        <img src="./image/image copy 5.png" alt="logo" class="logo me-2">
-                    </a>            
-                    <!-- <img src="/html/image/image copy 5.png" alt="logo" > -->
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/"><i class="fa-regular fa-house"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/usermovie"><i class="fa-solid fa-film"></i> Movie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-cart-shopping"></i> Download</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/userlogin"><i class="fa-solid fa-address-card"></i> Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-earth-americas"></i> EN</a>
-                    </li>
-                </ul> 
-            </div>
+    <div class="bg-img">
+        <img src="./image/image copy 9.png" alt="Background 1" class="bg-image bg-1">
+        <img src="./image/image copy 4.png" alt="Background 2" class="bg-image bg-2">
+        <img src="./image/image copy 2.png" alt="Background 3" class="bg-image bg-3">
+        <img src="./image/image copy 6.png" alt="Background 4" class="bg-image bg-4">
+    </div>
+    <%- include('../partials/navbar') %>
+    <div class="container mt-5">
+        <div class="heading">
+            <h3 class="heading" id="pic"><strong>Trending Movie</strong></h3>
         </div>
-    </nav>
-
-    <div class="container ">
-        <h3 class="mv1">Trending Movies</h3>
         <div class="row">
             <% movies.forEach(function(movie) { %>
                 <div class="col-lg-3 col-md-6 col-sm-12" >
