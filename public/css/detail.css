@@ -223,15 +223,6 @@
     text-align: left;
 }
 
-.dropdown-menu {
-    display: none;  
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    padding: 10px;
-    border-radius: 5px;
-}
 
 .nav-item:hover .dropdown-menu {
     display: block;
