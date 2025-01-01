@@ -264,3 +264,8 @@ body {
 #searchInput{
     border-radius: 20px;
 }
+.heading {
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
