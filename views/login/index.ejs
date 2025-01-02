@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h1 class="mb-4">User List</h1>
-<a href="/logins/create" class="btn btn-primary mb-3"> Add new User</a>
+<!-- <a href="/logins/create" class="btn btn-primary mb-3"> Add new User</a> -->
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -19,7 +19,7 @@
                 <td><%= login.password %></td>
                 <td>
                     <a href="/logins/<%= login.id %>" class="btn btn-info btn-sm">View</a>
-                    <a href="/logins/<%= login.id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+                    <!-- <a href="/logins/<%= login.id %>/edit" class="btn btn-warning btn-sm">Edit</a> -->
                     <form action="/logins/<%= login.id %>?_method=DELETE" method="POST" class="d-inline" >
                     <button type="button" class="btn btn-danger btn-sm" onclick="deleteAlert(this, <%= login.id %>)">Delete</button>
                     </form>

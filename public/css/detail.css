@@ -243,3 +243,62 @@
     font-size: 1rem; /* Smaller font size */
     border-radius: 15px; /* Slightly smaller border radius */
 }
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .navbar .form-control,
+    .navbar .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #languageDropdown,
+    #login {
+        transform: translateX(0);
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+}
+
+.navbar-toggler {
+    border-color: white;
+    color: white;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+/* Ensure dropdown toggles appear correctly */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu select {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Tweak button sizes for a cleaner look */
+.navbar-toggler {
+    border-color: white;
+    color: white;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1); /* Make toggler icon visible on dark background */
+}

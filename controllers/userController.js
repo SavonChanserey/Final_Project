@@ -74,7 +74,7 @@ const postRegisterPage = async (req, res) => {
         await db.query(query, [email, hashedPassword]);
 
         console.log('User registered successfully');
-        res.redirect('index/userlogin'); // Redirect to the login page after successful registration
+        res.redirect('/userlogin'); // Redirect to the login page after successful registration
     } catch (err) {
         console.error('Error during registration:', err);
         res.status(500).send('Failed to register user');
